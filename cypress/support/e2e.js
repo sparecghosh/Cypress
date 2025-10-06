@@ -14,4 +14,9 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+// import './commands'
+// import { HomePageMethods } from '../Pages/HomePageMethods';
+// import { RegistrationMethods } from '../Pages/RegistrationMethods';
+
+// global.HomePage = new HomePageMethods();
+// global.Registration = new RegistrationMethods();
