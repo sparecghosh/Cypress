@@ -4,7 +4,9 @@ import { Registration } from '../RegistrationPage/RegistrationMethods';
 
 class HomePageMethods {
   clickLoginButton() {
-    HomePageLocators.loginButton().click();
+    HomePageLocators.loginButton().should('be.visible').click();
+    // After clicking login, we need to click the "Register" link to go to registration
+    cy.contains('Register').click();
     return Registration;
   }
 }

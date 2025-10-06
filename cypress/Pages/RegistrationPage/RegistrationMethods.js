@@ -2,22 +2,42 @@ import { RegistrationPageLocators } from "./RegistrationLocators";
 import { DataGenerator } from "../../support/DataGenerator";
 
 export class RegistrationMethods {
-    fillRegistrationForm() {
-        const locators = RegistrationPageLocators;
-
-        locators.firstName().type(`Test${DataGenerator.generateRandomString(5)}`);
-        locators.lastName().type(`User${DataGenerator.generateRandomString(5)}`);
-        locators.street().type(`${DataGenerator.generateRandomNumber(100, 9999)} Test Street`);
-        locators.city().type(`TestCity${DataGenerator.generateRandomString(3)}`);
-        locators.state().type(['CA', 'NY', 'TX', 'FL', 'IL'][Math.floor(Math.random() * 5)]);
-        locators.zipCode().type(DataGenerator.generateRandomZipCode());
-        locators.phoneNumber().type(DataGenerator.generateRandomPhoneNumber());
-        locators.ssn().type(DataGenerator.generateRandomSSN());
-        locators.username().type(`user_${Date.now()}`); 
-        locators.password().type(`Passw0rd!`);
-        locators.repeatedPassword().type(`Passw0rd!`);
-        locators.submitButton().click();
+    constructor() {
+        this.testData = {};
     }
+
+    setData(key, value) {
+        this.testData[key] = value;
+    }
+
+    getData(key) {
+        return this.testData[key];
+    }
+
+    fillRegistrationForm(overrides = {}) {
+        const data = DataGenerator.createUserData(overrides);
+        this.setData('registration', data);
+
+        RegistrationPageLocators.firstName().clear().type(data.firstName);
+        RegistrationPageLocators.lastName().clear().type(data.lastName);
+        RegistrationPageLocators.street().clear().type(data.street);
+        RegistrationPageLocators.city().clear().type(data.city);
+        RegistrationPageLocators.state().clear().type(data.state);
+        RegistrationPageLocators.zipCode().clear().type(data.zipCode);
+        RegistrationPageLocators.phoneNumber().clear().type(data.phoneNumber);
+        RegistrationPageLocators.ssn().clear().type(data.ssn);
+        RegistrationPageLocators.username().clear().type(data.username);
+        RegistrationPageLocators.password().clear().type(data.password);
+        RegistrationPageLocators.repeatedPassword().clear().type(data.password);
+
+        RegistrationPageLocators.submitButton().click();
+
+        return this;
+    }
+
+    getRegistrationData() {
+    return this.getData('registration');
+  }
 }
 
 export const Registration = new RegistrationMethods();
