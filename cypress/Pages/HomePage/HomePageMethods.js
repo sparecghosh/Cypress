@@ -1,11 +1,11 @@
 // 📁 HomePageMethods.js
 import { HomePageLocators } from './HomepageLocator';
-import { RegistrationMethods } from '../RegistrationPage/RegistrationMethods';
+import { Registration } from '../RegistrationPage/RegistrationMethods';
 
 class HomePageMethods {
   clickLoginButton() {
     HomePageLocators.loginButton().click();
-    return new RegistrationMethods(); // return another page object
+    return Registration;
   }
 }
 
