@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import  { HomePage } from '../Pages/HomePageMethods';
+import  { HomePage } from '../Pages/HomePage/HomePageMethods';
 
 describe('Add User Test', () => {
     it('Add user using Page Object Model', () => {

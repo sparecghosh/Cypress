@@ -1,6 +1,6 @@
 // 📁 HomePageMethods.js
 import { HomePageLocators } from './HomepageLocator';
-import { RegistrationMethods } from './RegistrationMethods';
+import { RegistrationMethods } from '../RegistrationPage/RegistrationMethods';
 
 class HomePageMethods {
   clickLoginButton() {

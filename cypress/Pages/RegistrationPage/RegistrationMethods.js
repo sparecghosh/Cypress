@@ -1,5 +1,5 @@
 import { RegistrationPageLocators } from "./RegistrationLocators";
-import { DataGenerator } from "../support/DataGenerator";
+import { DataGenerator } from "../../support/DataGenerator";
 
 export class RegistrationMethods {
     fillRegistrationForm() {
